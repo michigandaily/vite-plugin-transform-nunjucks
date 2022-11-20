@@ -15,7 +15,6 @@ export default () => ({
         await Promise.all(
           config.fetch.filter(
             file => extname(file.output) === ".json"
-              && file.id.length > 0
               && file.output.length > 0
               && existsSync(join(process.cwd(), file.output))
           ).map(async (file) =>
