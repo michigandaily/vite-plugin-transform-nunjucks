@@ -1,0 +1,14 @@
+{
+  "name": "@michigandaily/vite-plugin-transform-nunjucks",
+  "version": "1.0.0",
+  "description": "Vite nunjucks transformer",
+  "main": "index.js",
+  "keywords": [
+    "vite-plugin"
+  ],
+  "author": "erxclau <ericlau41802@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nunjucks": "^3.2.3"
+  }
+}
