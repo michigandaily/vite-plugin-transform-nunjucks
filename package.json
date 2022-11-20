@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Vite nunjucks transformer",
   "main": "index.js",
+  "type": "module",
   "keywords": [
     "vite-plugin"
   ],
