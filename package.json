@@ -1,6 +1,6 @@
 {
   "name": "@michigandaily/vite-plugin-transform-nunjucks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vite nunjucks transformer",
   "main": "index.js",
   "type": "module",

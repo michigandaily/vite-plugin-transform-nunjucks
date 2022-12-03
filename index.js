@@ -7,7 +7,7 @@ export default () => ({
   name: "vite-plugin-transform-nunjucks",
   transformIndexHtml: {
     enforce: "pre",
-    async transform(html) {
+    async transform(html, { filename }) {
       const configPath = join(process.cwd(), "config.json");
       const config = JSON.parse(readFileSync(configPath));
 
@@ -30,7 +30,7 @@ export default () => ({
       );
 
       configure({ autoescape: false });
-      return renderString(html, { config, env: process.env.NODE_ENV, ...json })
+      return renderString(html, { config, filename: basename(filename), env: process.env.NODE_ENV, ...json })
     }
   }
 })
