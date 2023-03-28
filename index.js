@@ -8,8 +8,11 @@ export default () => ({
   transformIndexHtml: {
     enforce: "pre",
     async transform(html, { filename }) {
-      const configPath = join(process.cwd(), "config.json");
-      const config = JSON.parse(readFileSync(configPath));
+      const defualtConfigPaths = ["config.json", "sink.config.json", "sink.config.js"];
+      const configPath = defualtConfigPaths.find(file => existsSync(join(process.cwd(), file)));
+      const config = (extname(configPath) === ".json") 
+        ? JSON.parse(readFileSync(configPath))
+        : (await import(join(process.cwd(), configPath))).default;
 
       const json = Object.fromEntries(
         await Promise.all(
