@@ -7,9 +7,9 @@ Install by running `yarn add --dev michigandaily/vite-plugin-transform-nunjucks`
 Add to your `vite.config.js`:
 
 ```javascript
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
-import nunjucks from '@michigandaily/vite-plugin-transform-nunjucks'
+import nunjucks from "@michigandaily/vite-plugin-transform-nunjucks";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,14 +18,21 @@ export default defineConfig({
 });
 ```
 
-The transformer will template with files specified in a `config.json` file like this:
+The plugin also optionally accepts an object to add templating variables:
 
-```json
-{
-  "fetch": [
-    { "output": "./src/data/source.json" }
-  ]
-}
+```javascript
+import { defineConfig } from "vite";
+
+import nunjucks from "@michigandaily/vite-plugin-transform-nunjucks";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  base: "/",
+  plugins: [
+    nunjucks({
+      title: "The Michigan Daily",
+      description: "A brief description of the site.",
+    }),
+  ],
+});
 ```
-
-In the above case, the contents of the `source.json` file will be accessible through `{{ source }}` in Nunjucks.
