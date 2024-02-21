@@ -9,7 +9,6 @@ export default (options = {}) => ({
     async handler(html, { filename }) {
       nunjucks.configure({ autoescape: false });
       return nunjucks.renderString(html, {
-        config,
         filename: basename(filename),
         env: process.env.NODE_ENV,
         ...options,
